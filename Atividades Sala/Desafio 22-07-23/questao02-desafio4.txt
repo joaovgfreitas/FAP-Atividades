@@ -1,0 +1,6 @@
+let n = Number(prompt("Digite um número: "))
+if (n>=0){
+    console.log(n,"é um número POSITIVO")
+}else {
+    console.log(n,"é um número NEGATIVO")
+}
