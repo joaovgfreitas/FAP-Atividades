@@ -1,5 +1,3 @@
-Código feito em JavaScript: 
-
 let p1 = prompt("É terrestre? ")
 if (p1 == "sim"){
     let p2 = prompt("Cabe apenas uma pessoa? ")
