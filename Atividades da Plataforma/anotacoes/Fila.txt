@@ -1,0 +1,4 @@
+Funçõe da Fila
+enfileirar - push(element);
+desenfileirar - shift();
+
