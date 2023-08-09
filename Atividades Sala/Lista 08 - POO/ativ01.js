@@ -11,8 +11,8 @@ class aluno {
     return m;
 }
     final(){
-        if (this.m<7){
-            let nrest = 10 - this.m;
+        if (this.media()<7){
+            let nrest = 10 - this.media();
             return nrest; 
         }else {
             return 0;
@@ -21,4 +21,4 @@ class aluno {
 } 
 const a1 = new aluno(25419, "joao", 6, 7, 8);
 console.log("Media do aluno:",a1.media().toFixed(2));
-console.log("Precisa de",a1.final(),"para passar")
+console.log("Precisa de",a1.final().toFixed(2),"para passar")
