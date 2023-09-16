@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const PORT = 3001
+const PORT = 3333
 const carros = [
     {
         Id: 1,
@@ -30,8 +30,18 @@ app.get("/Carros", (req, res)=>{
 })
 
 app.post("/Cadastrar",(req, res)=>{
+   const resposta = req.body
+   const {id, modelo, valor, Ano} = resposta
+   carros.push(resposta)
+   res.send("Cadastrado!")
+})
+
+app.delete("/Deletar", (req,res)=>{
     const id = req.body.id
-    const modelo = req.body.modelo
-    const valor = req.body.valor
-    const ano = req.body.ano
+    for(let i = 0; i<carros.length; i++){
+        if(carros[i].Id == id){
+            carros.splice(i, 1)
+        }
+    }
+    res.send("Deletado!")
 })
