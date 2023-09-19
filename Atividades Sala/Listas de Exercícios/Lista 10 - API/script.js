@@ -45,3 +45,9 @@ app.delete("/Deletar", (req,res)=>{
     }
     res.send("Deletado!")
 })
+//app.update - update é o último método...
+/*app.put("/Atualizar", (res, req)=>{
+    const atmodelo = req.body.modelo
+
+    res.send("Atualizado!")
+})*/
