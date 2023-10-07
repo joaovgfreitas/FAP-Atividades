@@ -26,8 +26,17 @@ app.get("/formulario",(req, res)=>{
     res.render('formulario')
 })
 
-app.post("/cadatrar", (req, res)=>{
-    
+app.post("/cadastrar", (req, res)=>{
+    const nome = req.body
+    const preco = req.body
+    const comando = 'INSERT INTO produto (nome,preco) VALUES(?,?)'
+    db.query(comando,[nome,preco],(err)=>{
+        if (err){
+            console.log("Erro ao inserir o banco de dados",err)
+        }else {
+            res.send("Produto cadastrado com sucesso!")
+        }
+    })
 })
 
 app.listen(3004, ()=>{
