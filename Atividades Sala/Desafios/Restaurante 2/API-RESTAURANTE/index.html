@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio do Restaurante</title>
+    <style>
+        *{
+            background-color: lightcoral;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            background-color: rgb(212, 212, 3);
+        }
+        a{
+            display: flex;
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/form.html">Cadastro</a>
+
+    <h1>Cardápio do Restaurante</h1>
+    <div class="menu" id="menu"></div>
+
+    <script>
+        function api (){
+        fetch('http://localhost:3000/menu')
+            .then(response => response.json())
+            .then(menu => {
+                const menuContainer = document.getElementById('menu');
+                menu.forEach(prato => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h2>${prato.nome}</h2>
+                        <p>Preço: R$ ${prato.preco.toFixed(2)}</p>
+                    `;
+                    menuContainer.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Erro ao buscar o menu:', error));
+        }
+        api()
+    </script>
+</body>
+</html>
