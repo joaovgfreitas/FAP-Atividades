@@ -17,8 +17,8 @@ class userController {
     }
     async mostrar(req, res){
         const {nome, email, senha} = req.body;
-        const sql = 'SELECT (nome, email, senha) FROM Users';
-        const values = [nome, email, senha]
+        sql = 'SELECT (nome, email, senha) FROM Users';
+        values = [nome, email, senha]
 
         connection.query(sql, values, (err, result)=>{
             if(err){
@@ -31,12 +31,12 @@ class userController {
             }
         })
     }
-
+/*
     async getUsers(){
         const {nome, email, senha} = req.body
 
     }
-
+*/
 
 }
 
